@@ -1,0 +1,895 @@
+/* 
+    Author     : monoheva
+*/
+
+/*CSS RESET*/
+*,
+*::before,
+*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/*BASIC CSS*/
+:root{
+   --main-color: #000;
+   --basic-color: #fff;
+   --first-color: #d30000;
+   --second-color: #888;
+   --third-color: #ddd;
+   --fourth-color: #333;
+   --fifth-color: #555;   
+}
+
+html{
+   scroll-behavior: smooth;
+}
+
+#main,
+#gallery-container,
+#footer{
+   scroll-margin-top: 100px;
+}
+
+h1, h3{
+    color: var(--basic-color);
+}
+
+h1{
+    font-size: 6.5rem;
+    border-bottom: 2px solid var(--second-color);;
+}
+
+h2{
+    font-size: 2rem;
+    color: var(--first-color); 
+}
+
+h3{
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-top: 1rem;
+    text-align: right;
+}
+
+h4{
+   font-size: 1.2rem;
+   color: var(--first-color);
+   text-transform: uppercase;
+   font-weight: bold;
+}
+
+a{
+   color: var(--basic-color);
+   text-decoration: none;
+}
+
+.basic-width{
+   width: min(90%, 1140px);
+   margin-inline: auto;
+}
+
+/*HEADER CSS*/
+
+.header{
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 90px;
+   z-index: 99;
+   background-color: var(--basic-color);
+}
+
+.topheader-container{
+    width: 100%;
+    height: 50px;
+    padding-block: 5px;
+    background-color: var(--main-color);
+    color: white;
+}
+
+.topheader, .adminbox{
+    display: flex;
+    gap: 20px;
+}
+
+.topheader{
+    height: 40px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.welcome{
+    font-weight: bold;
+}
+
+.admin-btn{
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/*LOGIN FORM CSS*/
+
+.form-container{
+    display: grid;
+    justify-alignt: center;
+    width: 425px;
+    min-height: 350px;
+    background-color: var(--basic-color);
+    border-radius: 5px;
+}
+
+.form-title{
+    position: relative;
+    background-color: var(--first-color);
+    height: 60px;
+    padding: 1rem;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.form-title h3{
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: 0;
+}
+
+.form-closebtn{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    background-color: var(--third-color);
+}
+
+.user-form, .btnbox, .infobox{
+    padding-inline: 2rem;
+}
+
+.user-form label{
+    font-weight: bold;
+}
+
+.user-data{
+    margin-top: 1rem;
+    display: grid;
+    gap: 0.5rem;
+}
+
+.user-form input{  
+    padding: 5px;
+}
+
+.errormsg{
+    margin-top: 0.5rem;
+    padding-left: 2rem;
+    visibility: hidden;
+    font-size: 0.8rem;
+    color: var(--first-color);
+    font-weight: bold;
+}
+
+.formbtn{
+    width: 100%;
+    height: 3rem;
+    margin-top: 1rem;
+    margin-bottom: 2rem;    
+    text-transform: uppercase;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.formbtn:hover{
+    background-color: var(--first-color);
+    color: var(--basic-color);
+}
+
+.infobox{
+    text-align: center;
+}
+
+hr{
+    margin-top: 1rem;    
+}
+.link{
+    color: var(--first-color);  
+}
+
+.link:hover{
+   text-decoration: underline;
+}
+
+.infobox p{
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    font-weight: bold;
+}
+
+/*MENU CSS*/
+
+.menu, .submenu{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 50px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    gap: 20px;
+}
+
+.menu-btn{
+    display: block;
+    color: var(--first-color);
+    position: relative;    
+}
+
+.menu-btn::before{
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    width: 0px;
+    height: 3px;
+    background-color: var(--main-color);
+    transition: all 0.5s ease;
+}
+
+.menu-btn:hover::before{
+    width: 100%;
+}
+
+/*HAMBURGER MENU*/
+
+.hamburger-menu{
+   display: none;
+   gap: 7px;
+   width: 40px;
+   cursor: pointer;
+   float: right;
+   margin-top: 10px;
+   margin-right: 10px;
+}
+
+.line-1,
+.line-2,
+.line-3{
+   width: 100%;
+   height: 4px;
+   border-radius: 50px;
+   background-color: var(--main-color);
+   transition: all .3s ease;
+}
+
+.line-1-active {
+   transform: rotate(-45deg) translateY(7px);
+}
+
+.line-2-active {
+   display: none;
+}
+
+.line-3-active {
+   transform: rotate(45deg) translateY(-7px);
+}
+
+/*HERO CONTAINER CSS*/
+
+.hero-container{
+    background-color: var(--main-color);
+    border-bottom: 15px solid var(--white-color);
+}
+
+.title-container{
+    display: grid;
+    height: 280px;
+    align-items: center;
+    background: url(bg.png) no-repeat center/cover;
+}
+
+.titlebox{
+    width: 570px;
+}
+
+.redfont{
+    color: var(--first-color);
+}
+
+/*MAIN CONTENT CSS*/
+
+#main{
+   position: relative;
+   margin-top: 100px;
+   min-height: 770px;
+}
+
+.submenu{
+    margin-block: 2rem;
+    justify-content: center;
+}
+
+.submenu-btn{
+    display: block;
+    width: 170px;
+    padding: 10px;
+    background-color: var(--fourth-color);
+    text-align: center;
+    color: var(--basic-color);
+}
+
+.submenu-btn:hover{
+    background-color: var(--first-color);
+}
+
+/*IMAGE GALLERY CSS*/
+
+.image-container{
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+    background-color: var(--third-color);
+}
+
+.top-image-container{
+    display: flex;
+    gap: 20px;
+}
+
+.gallery-container{
+    padding-block: 2rem;
+}
+
+.images-gallery{
+    display: grid;   
+    grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+    margin-top: 1rem;
+    gap: 15px; 
+}
+
+.top-image{
+    position: relative;
+}
+
+.img-box{
+    margin-top: 1rem;
+}
+
+.box-title{
+    width: 100%;
+    position: absolute;
+    background-color: hsla(0, 0%, 0%, 0.6);
+    bottom: 4px;
+    padding: 5px 10px;
+    z-index: 10;
+    pointer-events: none;    
+}
+
+.selected-photo, .index-photo{
+    width: 100%;
+    transition: .3s ease-in-out;
+    cursor: pointer; 
+}
+
+.img-property, .img-datas, .view, .like{
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.95rem;    
+}
+
+.img-title{
+    font-weight: bold;
+}
+
+.img-datas{
+    gap: 5px;
+}
+
+.icon {
+    width: 100%;
+    height: 100%;
+}
+
+.likebtn, .uploadbtn{
+    padding: 2px 4px;
+    margin-top: 5px;    
+}
+
+.likebtn{
+    float: right;     
+}
+
+.likebtn:hover, .uploadbtn:hover{
+    background-color: var(--first-color);
+    color: var(--basic-color);   
+}
+
+/*MODAL CSS*/
+
+.modal-wrapper{
+   display: grid;
+   place-content: center;
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100vw;
+   height: 100vh;
+   z-index: 900;
+   background-color: rgba(0,0,0,0.8);
+}
+
+.modal-box{
+   position: relative;
+   max-height: 90vh;
+   background-color: var(--basic-color);
+   border: 8px solid var(--basic-color);
+}
+
+.modal-box img{
+   width: 100%;
+}
+
+.titleimg{
+    margin-top: 5px;
+    background-color: var(--basic-color);
+    font-weight: bold;
+}
+
+.stop{ 
+   overflow: hidden;
+}
+
+.close{
+   position: absolute;
+   top: 0;
+   right: 0;
+   z-index: 999;
+   font-size: 3rem;
+   background-color: var(--first-color);
+   color: var(--basic-color);
+   cursor: pointer;
+}
+
+/*MEMBERS CONTAINER AND DATAS CSS*/
+
+.members-container{
+    padding-top: 3rem;
+    padding-bottom: 4rem;
+}
+
+table{
+    width: 100%;
+    height: 400px;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+th{
+    font-size: 1.2rem;
+    background-color: var(--first-color);
+    color: var(--basic-color);
+    text-transform: uppercase;
+}
+
+tr{
+    background-color: var(--third-color);
+    border-bottom: 4px solid var(--basic-color);
+}
+
+td:first-child{
+    font-weight: bold;
+}
+
+.user-link{
+    color: var(--main-color);
+}
+
+.user-link:hover{
+    color: var(--first-color);
+    text-decoration: underline;
+}
+
+.title{
+    background-color: var(--first-color);
+    color: var(--basic-color);
+    padding: 5px 10px;
+}
+
+.text{
+    margin-block: 1rem;
+    line-height: 2rem;
+}
+
+.form-label{
+    margin-top: 1rem;
+    padding-block: 1rem;
+    font-size: 1.2rem;
+    color: var(--first-color);
+    font-weight: bold;
+    text-transform: uppercase;
+    border-top: 1px solid var(--fourth-color);
+}
+
+.uploadimg label{
+    font-weight: bold;
+}
+
+.uploadimgspan, .infomsg span{
+    color: var(--first-color);
+}
+
+.uploadimg div{
+    margin-bottom: 1rem;    
+}
+
+.infomsg{
+    font-size: 0.8rem;   
+}
+
+.uploadimg .errormsg{
+    padding-left: 0;
+    margin-bottom: 1rem;
+}
+
+/*FOOTER CSS*/
+
+footer{
+   background-color: var(--main-color);
+   color: var(--basic-color);
+}
+
+.footer-container{
+   padding-block: 2rem;
+}
+
+.top-footer{
+   display: flex;
+   justify-content: space-between;
+   padding-bottom: 0.5rem;
+}
+
+.footer-about{
+   width: 45%;
+}
+
+.footer-about p{
+   margin-top: 1rem;
+}
+
+.footer-contact,
+.footer-information{
+   display: grid;
+}
+
+.footer-data{
+    display: flex;
+    gap: 5px;
+}
+
+.info-icon{
+   color: var(--first-color);
+}
+
+.footer-contact a, .footer-information a{
+   color: var(--basic-color);
+}
+
+.footer-contact a:hover, .footer-information a:hover{
+   text-decoration: underline;
+}
+
+.bottom-footer p{
+   margin-top: 1rem;
+   padding-top: 1rem;
+   border-top: 1px solid var(--basic-color);
+   text-align: center;
+   border-top: 1px solid var(--third-color);
+}
+
+/*BLOG CSS*/
+
+.last-post-container{
+    margin-block: 1rem;
+    padding: 2rem;
+    background-color: var(--third-color);
+    box-shadow: 3px 3px 10px var(--fourth-color);
+}
+
+.last-post-container h2{
+    font-size: 2.5rem;
+}
+
+.last-post-container p{
+    font-size: 1.3rem;
+}
+
+.post-link{
+    display: block;
+    margin-top: 1rem;
+    color: var(--fifth-color);
+    font-weight: bold;
+}
+
+.post-link:hover{
+    color: var(--first-color);
+    text-decoration: underline;
+}
+
+.topic{
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.author{
+    font-weight: bold;
+}
+
+.postdate{
+    border-bottom: 1px solid var(--fifth-color);;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+    font-style: italic;
+}
+
+.post-box:not(:last-child){
+    padding: 2rem;
+    border-bottom: 2px solid var(--first-color);;
+}
+
+.post-box:last-child{
+    padding: 2rem;
+    margin-bottom: 1rem;
+}
+
+.blogpost-container{
+    display: flex;
+    gap: 4rem;
+    margin-block: 1rem;
+}
+
+.blogpost-box{
+    width: 82%;
+}
+
+.blogpost-box h2{
+    margin-block: 5px;
+}
+
+.archivum{
+    width: 20%;
+}
+
+.archivum h3{
+    background-color: var(--fifth-color);;
+    text-align: center;
+    padding-block: 5px;
+}
+
+.archivum ul{
+    list-style-image: url(point.png);
+    list-style-position: inside;
+    margin-top: 2rem;
+}
+
+.archivum ul li{
+    margin-top: 1rem;
+}
+
+.archivum a{
+    display: inline-block;
+}
+
+#blogedit{
+    display: grid;
+    gap: 1rem;
+  
+}
+#blogedit p:first-child, #blogedit>label{
+    font-weight: bold;
+    font-size: 1.3rem;  
+    text-transform: uppercase;
+    color: var(--first-color);
+}
+
+#articletitle{
+    font-size: 1rem;
+    padding: 10px;
+}
+
+#blogedit input, #blogedit textarea{
+    margin-inline: 20px;
+}
+
+#blogedit .btnbox{
+    display: grid;
+    justify-content: center;
+}
+
+#blogformbtn{
+    margin-top: 0;
+    padding-inline: 20px;
+}
+
+.editerror{
+    font-size: 1rem;
+    text-align: center;
+}
+
+/* MEDIA QUERIES */
+
+@media (max-width: 1024px){
+    
+    /* BASIC CSS */
+    h1{
+        font-size: 4rem;
+    }
+    
+    h3{
+        font-size: 1.2rem;        
+    }
+    
+    /* HEADER CSS */        
+    .logo img{
+        width: 80%
+    }
+    
+    /* HERO CONTAINER CSS */    
+    .title-container{
+        height: 240px;
+        background: url(bg2.png) no-repeat center/cover;
+    }
+
+    .titlebox{
+        width: 400px;
+    }
+    
+    .modal-box{
+        width: 90vw;
+    }
+    
+    .icon{
+        width: 40%;
+    }
+        
+    .img-title, .viewnum, .likenum{
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 600px){
+    
+    /* BASIC CSS */
+    h1{
+        font-size: 3.5rem;
+    }
+    
+    h2{
+        font-size: 1.7rem;        
+    }
+    
+    /* LOGIN FORM CSS */    
+    .form-container{
+       width: 360px; 
+    }
+    
+    /* MENU CSS */
+    .hamburger-menu{
+      display: grid;
+    }
+    
+    .menu{
+      position: fixed;
+      width: 100%;
+      top: -100vh;
+      left: 0;
+      height: 100vh;
+      background-color: var(--main-color);
+      transition: all 0.4s ease;
+      z-index: -100;
+      padding-top: 14vh;
+    }   
+    
+    .active{
+      top: 90px;
+    }
+    
+    .menu{
+        flex-direction: column;
+        justify-content: flex-start;
+        gap: 50px;       
+    }
+
+    .menu-btn::before{
+        background-color: var(--basic-color);
+    }
+    
+    .submenu{
+        font-size: 0.95rem;
+        gap: 10px;
+    }
+    
+    /* HEADER CSS */    
+    .logo img{
+        width: 60%
+    }
+    
+    .welcome{
+        display: none;
+    }
+    
+    /* HERO CONTAINER CSS */        
+    .title-container{
+        background: none;
+    }
+    
+    .titlebox{
+        width: 100%;
+    }
+    
+    /* IMAGE GALLERY CSS */        
+    .top-image-container{
+        display: grid;
+    }
+    
+    /* MODAL CSS */    
+    .close{
+        font-size: 1.5rem;
+     }
+    
+    /* MEMBERS CONTAINER AND DATAS CSS */     
+    th{
+        font-size: 1rem;
+    }
+    
+    td:first-child{
+        width: 120px;
+    }
+    
+    /* FOOTER CSS */        
+    .top-footer{
+        display: grid;
+        gap: 20px;
+    }
+    
+    .top-footer h4{
+        margin-bottom: 10px;
+    }
+    
+    .footer-about{
+        width: 100%;
+    }
+    
+    .footer-contact, .footer-information{
+        gap: 8px;
+    }
+    
+    .bottom-footer{
+        font-size: 0.9rem;
+    }
+    
+    /* BLOG CSS */        
+    .last-post-container h2{
+        font-size: 1.7rem;
+    }
+
+    .last-post-container p{
+        font-size: 1rem;
+    }
+    
+    .blogpost-container{
+        display: grid;
+        gap: 10px;
+    }
+    
+    .blogpost-box{
+        width: 100%;
+    }
+
+    .archivum{
+        width: 100%;
+        margin-bottom: 2rem;
+    }    
+}
+
